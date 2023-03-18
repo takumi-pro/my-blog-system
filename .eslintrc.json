@@ -5,17 +5,17 @@
     "plugin:import/warnings",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint"]
-  // "rules": {
-  //   "sort-imports": "off",
-  //   "import/order": [
-  //     "error",
-  //     {
-  //       "groups": ["builtin", "external", "internal"],
-  //       "alphabetize": {
-  //         "order": "asc"
-  //       }
-  //     }
-  //   ]
-  // }
+  "plugins": ["import"],
+  "rules": {
+    "sort-imports": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ]
+  }
 }
