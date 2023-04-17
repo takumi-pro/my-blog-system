@@ -1,3 +1,9 @@
+import ChangeThemeButton from '@/components/ChangeThemeButton/ChangeThemeButton';
+
 export default function Home() {
-  return <></>;
+  return (
+    <div>
+      <ChangeThemeButton />
+    </div>
+  );
 }
