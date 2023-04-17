@@ -9,6 +9,7 @@
   ],
   "plugins": [
     "import",
+    "unused-imports",
     "@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
@@ -18,8 +19,9 @@
   "rules": {
     "no-else-return": "error",
     "object-shorthand": "error",
-    "no-magic-numbers": "error",
+    "no-magic-numbers": "warn",
     "camelcase": "error",
+    "unused-imports/no-unused-imports": "error",
     "import/order": [
       "error",
       {
