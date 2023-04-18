@@ -1,9 +1,11 @@
 import ChangeThemeButton from '@/components/ChangeThemeButton/ChangeThemeButton';
+import { Header } from '@/components/Header/Header';
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <Header />
       <ChangeThemeButton />
-    </div>
+    </>
   );
 }
