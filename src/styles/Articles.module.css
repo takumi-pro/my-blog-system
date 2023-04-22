@@ -12,6 +12,11 @@
 .page-title {
   font-size: 30px;
   color: var(--body-text-color);
+  padding-top: 40px;
+}
+
+.category-container {
+  margin-top: 24px;
 }
 
 .articles-container {
@@ -19,6 +24,7 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 16px;
   row-gap: 16px;
+  margin-top: 24px;
 }
 
 .article {
