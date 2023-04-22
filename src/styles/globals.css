@@ -1,11 +1,24 @@
 :root {
   --background-color-main: #1a1e2e;
+  --background-color-sub1: #2c3147;
+  --background-theme-change-button: #fbd38d;
+
+  --body-text-color: rgba(255, 255, 255, 0.92);
+  --text-color-gray1: rgba(228, 232, 250, 0.55);
 }
 
 [data-theme='light'] {
   --background-color-main: rgb(240, 231, 219);
+  --background-color-sub1: #2c3147;
+  --background-theme-change-button: #805ad5;
+
+  --body-text-color: #1a202c;
 }
 
-body {
+body,
+h1,
+h2,
+h3,
+p {
   margin: 0;
 }
