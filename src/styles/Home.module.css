@@ -1,0 +1,22 @@
+.main-container {
+  width: 100%;
+  height: calc(100vh - 75px);
+  background-color: var(--background-color-main);
+}
+
+.main-inner {
+  max-width: 630px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.self-name-container {
+  padding-top: 56px;
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.self-introduction {
+  margin-top: 32px;
+}
