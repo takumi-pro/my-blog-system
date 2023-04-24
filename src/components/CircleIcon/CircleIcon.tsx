@@ -20,7 +20,7 @@ export const CircleIcon: FC<CircleIconProps> = ({
 }) => {
   return (
     <div className={style['image-wrap']} style={imageStyle}>
-      <Link className={style.link} href={'#'}>
+      <Link className={style.link} href={'/'}>
         <Image className={style.image} src={myImage} alt="my image ..." />
       </Link>
     </div>

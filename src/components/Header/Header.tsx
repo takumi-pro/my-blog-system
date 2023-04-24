@@ -14,7 +14,7 @@ export const Header = () => {
           <nav className={style.nav}>
             <ul className={style['list-container']}>
               <li>
-                <Link className={style.link} href={'#'}>
+                <Link className={style.link} href={'/articles'}>
                   article
                 </Link>
               </li>
