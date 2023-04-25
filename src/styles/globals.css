@@ -5,6 +5,7 @@
 
   --body-text-color: rgba(255, 255, 255, 0.92);
   --text-color-gray1: rgba(228, 232, 250, 0.55);
+  --footer-color: rgba(228, 232, 250, 0.55);
 }
 
 [data-theme='light'] {
@@ -13,6 +14,7 @@
   --background-theme-change-button: #805ad5;
 
   --body-text-color: #1a202c;
+  --footer-color: rgba(60, 60, 60, 0.55);
 }
 
 body,
