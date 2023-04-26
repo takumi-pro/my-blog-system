@@ -42,6 +42,8 @@ export default function Home() {
             <p>BLEACH / SAKAMOTO DAYS / マッシュル</p>
             <p className={style['each-content-item']}>小説</p>
             <p>ハリー・ポッター / ダレン・シャン / デルトラクエスト</p>
+            <p className={style['each-content-item']}>映画</p>
+            <p>鉄コン筋クリート</p>
           </div>
           <h3 className={style.heading3}>Link...</h3>
           <div className={style['each-content']}>
