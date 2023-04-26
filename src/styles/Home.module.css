@@ -17,7 +17,7 @@
   align-items: center;
   column-gap: 16px;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .self-introduction {
@@ -55,6 +55,8 @@
 }
 .link-wrap a {
   font-weight: bold;
+  text-decoration: none;
+  color: var(--sns-link-color);
 }
 
 .github,
@@ -63,4 +65,11 @@
 }
 .twitter {
   color: rgb(29, 155, 240);
+}
+
+@media (max-width: 760px) {
+  .self-name-container {
+    flex-direction: column;
+    row-gap: 8px;
+  }
 }
