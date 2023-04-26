@@ -69,3 +69,9 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 760px) {
+  .articles-container {
+    grid-template-columns: 1fr;
+  }
+}
