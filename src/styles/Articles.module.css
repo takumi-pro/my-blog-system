@@ -37,6 +37,10 @@
   column-gap: 16px;
 }
 
+.draft {
+  display: none;
+}
+
 .contents {
   width: calc(100% - 90px);
   display: flex;

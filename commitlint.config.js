@@ -14,6 +14,7 @@ module.exports = {
         'chore',
         'remove',
         'move',
+        'fix',
       ],
     ],
   },

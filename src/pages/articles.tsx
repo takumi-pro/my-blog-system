@@ -38,25 +38,23 @@ function Articles({ articles }: ArticlesProps) {
           </div>
           <div className={style['articles-container']}>
             {articles.map((article) => (
-              <>
-                {article.fontMatter.published && (
-                  <Link
-                    key={article.slug}
-                    href={`/article/${article.slug}`}
-                    className={style.article}
-                  >
-                    <div className={style['eye-catch-wrap']}>
-                      <EyeCatch emoji={article.fontMatter.emoji} />
-                    </div>
-                    <div className={style.contents}>
-                      <p className={style.title}>{article.fontMatter.title}</p>
-                      <small className={style.date}>
-                        {article.fontMatter.publishedAt}
-                      </small>
-                    </div>
-                  </Link>
-                )}
-              </>
+              <Link
+                key={article.slug}
+                href={`/article/${article.slug}`}
+                className={`${style.article} ${
+                  !article.fontMatter.published && style.draft
+                }`}
+              >
+                <div className={style['eye-catch-wrap']}>
+                  <EyeCatch emoji={article.fontMatter.emoji} />
+                </div>
+                <div className={style.contents}>
+                  <p className={style.title}>{article.fontMatter.title}</p>
+                  <small className={style.date}>
+                    {article.fontMatter.publishedAt}
+                  </small>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
