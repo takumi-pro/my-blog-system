@@ -1,0 +1,5 @@
+.main-container {
+  background-color: var(--background-color-main);
+  width: 100%;
+  min-height: calc(100vh - 75px - 60px);
+}
