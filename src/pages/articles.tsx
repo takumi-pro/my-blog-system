@@ -1,3 +1,6 @@
+import fs from 'fs';
+
+import matter from 'gray-matter';
 import Link from 'next/link';
 import React from 'react';
 
@@ -7,7 +10,23 @@ import { Header } from '@/components/Header/Header';
 
 import style from '../styles/Articles.module.css';
 
-function Articles() {
+type Articles = {
+  fontMatter: {
+    title: string;
+    emoji: string;
+    type?: string;
+    topics?: string[];
+    published: boolean;
+    publishedAt?: string;
+  };
+  slug: string;
+}[];
+
+type ArticlesProps = {
+  articles: Articles;
+};
+
+function Articles({ articles }: ArticlesProps) {
   return (
     <>
       <Header />
@@ -18,44 +37,27 @@ function Articles() {
             ここにカテゴリが入るよ
           </div>
           <div className={style['articles-container']}>
-            <Link href={'#'} className={style.article}>
-              <div className={style['eye-catch-wrap']}>
-                <EyeCatch emoji="📝" />
-              </div>
-              <div className={style.contents}>
-                <p className={style.title}>DDNSについて復習</p>
-                <small className={style.date}>2023/4/20</small>
-              </div>
-            </Link>
-            <Link href={'#'} className={style.article}>
-              <div className={style['eye-catch-wrap']}>
-                <EyeCatch emoji="㊗️" />
-              </div>
-              <div className={style.contents}>
-                <p className={style.title}>〇〇に合格しました</p>
-                <small className={style.date}>2023/4/20</small>
-              </div>
-            </Link>
-            <Link href={'#'} className={style.article}>
-              <div className={style['eye-catch-wrap']}>
-                <EyeCatch emoji="💻" />
-              </div>
-              <div className={style.contents}>
-                <p className={style.title}>
-                  【Next.js】Next.jsとmicroCMSを使って自作ブログを構築してみたら案外簡単でとても驚いた話
-                </p>
-                <small className={style.date}>2023/4/20</small>
-              </div>
-            </Link>
-            <Link href={'#'} className={style.article}>
-              <div className={style['eye-catch-wrap']}>
-                <EyeCatch emoji="📝" />
-              </div>
-              <div className={style.contents}>
-                <p className={style.title}>DDNSについて復習</p>
-                <small className={style.date}>2023/4/20</small>
-              </div>
-            </Link>
+            {articles.map((article) => (
+              <>
+                {article.fontMatter.published && (
+                  <Link
+                    key={article.slug}
+                    href={`/article/${article.slug}`}
+                    className={style.article}
+                  >
+                    <div className={style['eye-catch-wrap']}>
+                      <EyeCatch emoji={article.fontMatter.emoji} />
+                    </div>
+                    <div className={style.contents}>
+                      <p className={style.title}>{article.fontMatter.title}</p>
+                      <small className={style.date}>
+                        {article.fontMatter.publishedAt}
+                      </small>
+                    </div>
+                  </Link>
+                )}
+              </>
+            ))}
           </div>
         </div>
       </main>
@@ -65,3 +67,20 @@ function Articles() {
 }
 
 export default Articles;
+
+export const getStaticProps = async () => {
+  const articleFiles = fs.readdirSync('articles');
+  const articles = articleFiles.map((fileName) => {
+    const slug = fileName.replace(/\.md$/, '');
+    const fileContent = fs.readFileSync(`articles/${fileName}`, 'utf-8');
+    const { data } = matter(fileContent);
+    return {
+      fontMatter: data,
+      slug,
+    };
+  });
+
+  return {
+    props: { articles },
+  };
+};

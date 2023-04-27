@@ -18,12 +18,15 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "gray-matter": "^4.0.3",
+    "microcms-js-sdk": "^2.3.3",
     "next": "13.3.0",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "zenn-cli": "^0.1.143"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.0",
