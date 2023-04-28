@@ -63,12 +63,12 @@ export const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link className={style.link} href={'#'}>
+                <Link className={style.link} href={'/about'}>
                   About
                 </Link>
               </li>
               <li>
-                <Link className={style.link} href={'#'}>
+                <Link className={style.link} href={'/works'}>
                   Works
                 </Link>
               </li>
