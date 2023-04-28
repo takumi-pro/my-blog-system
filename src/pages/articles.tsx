@@ -50,9 +50,13 @@ function Articles({ articles }: ArticlesProps) {
                 </div>
                 <div className={style.contents}>
                   <p className={style.title}>{article.fontMatter.title}</p>
-                  <small className={style.date}>
-                    {article.fontMatter.publishedAt}
-                  </small>
+                  {article.fontMatter.publishedAt ? (
+                    <small className={style.date}>
+                      {article.fontMatter.publishedAt}
+                    </small>
+                  ) : (
+                    <small className={style.date}>公開日未設定</small>
+                  )}
                 </div>
               </Link>
             ))}

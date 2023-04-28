@@ -45,7 +45,11 @@ function Article({ fontMatter, content }: ArticleProps) {
             </div>
             <h2 className={style.title}>{fontMatter.title}</h2>
           </div>
-          <p className={style.published}>公開: {fontMatter.publishedAt}</p>
+          {fontMatter.publishedAt ? (
+            <p className={style.published}>公開: {fontMatter.publishedAt}</p>
+          ) : (
+            <p className={style.published}>公開: 未設定</p>
+          )}
           <div
             className={`znc ${style.content}`}
             dangerouslySetInnerHTML={{
