@@ -3,7 +3,7 @@ title: "【OS自作入門記録 3章】初めてのカーネルとピクセル�
 emoji: "💻"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
-published: false
+published: true
 publishedAt: '2023/05/13'
 ---
 
