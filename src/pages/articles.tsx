@@ -1,5 +1,6 @@
 import fs from 'fs';
 
+import { compareDesc, parse } from 'date-fns';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import React from 'react';
@@ -10,7 +11,7 @@ import { Header } from '@/components/Header/Header';
 
 import style from '../styles/Articles.module.css';
 
-type Articles = {
+type Article = {
   fontMatter: {
     title: string;
     emoji: string;
@@ -20,13 +21,31 @@ type Articles = {
     publishedAt?: string;
   };
   slug: string;
-}[];
+};
 
 type ArticlesProps = {
-  articles: Articles;
+  articles: Article[];
 };
 
 function Articles({ articles }: ArticlesProps) {
+  const sortedArticles = (): Article[] => {
+    return Array.from(
+      articles.sort((a: Article, b: Article) => {
+        const dateA = parse(
+          a.fontMatter.publishedAt || '',
+          'yyyy/MM/dd',
+          new Date(),
+        );
+        const dateB = parse(
+          b.fontMatter.publishedAt || '',
+          'yyyy/MM/dd',
+          new Date(),
+        );
+        return compareDesc(dateA, dateB);
+      }),
+    );
+  };
+
   return (
     <>
       <Header />
@@ -37,7 +56,7 @@ function Articles({ articles }: ArticlesProps) {
             ここにカテゴリが入るよ
           </div>
           <div className={style['articles-container']}>
-            {articles.map((article) => (
+            {sortedArticles().map((article) => (
               <Link
                 key={article.slug}
                 href={`/article/${article.slug}`}
