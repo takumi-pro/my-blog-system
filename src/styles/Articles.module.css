@@ -1,6 +1,7 @@
 .articles-main-container {
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 75px - 60px - 32px);
   background-color: var(--background-color-main);
+  padding-bottom: 32px;
 }
 
 .articles-main-inner {
