@@ -12,7 +12,21 @@ Javaアプリケーションを作成するために「スッキリわかるサ�
 
 ## 前提環境
 - IDE：VSCode
-- Java関連の拡張機能：Extension Pack for Java
+- Java関連の拡張機能
+  - Extension Pack for Java
+  - Community Server Connectors
+
+### ディレクトリ構成
+```bash
+java-servlet
+├── HelloServlet.java
+└── helloservlet
+    ├── WEB-INF
+    │   ├── classes
+    │   │   └── HelloServlet.class
+    │   └── web.xml
+    └── index.html
+```
 
 ## サーブレットクラスの作成
 ルートディレクトリに`src`ディレクトリを作成して、その中に`HelloServlet.java`ファイルを作成する。
@@ -44,3 +58,41 @@ VSCodeサイドバーの`JAVA PROJECTS`から`Configure Classpath`を選択。
 
 `Referenced Libraries`にTomcatのlibフォルダにある`servlet-api.jar`のパスを追加することで、エラー栓が消える。
 
+## Tomcatをインストールする
+VSCodeの拡張機能`Community Server Connectors`を使用してTomcatv10.0.0をインストールしていく。
+`Create New Server`を選択
+執筆中
+
+## コンテキストの設定
+今回は`$CATALINA_HOME/conf/Catalina/localhost`ディレクトリにhello.xmlとして以下を設定した
+```xml
+<Context path="/hello" docBase="/Users/igarashitakumi/Documents/java/java-servlet/helloservlet/"/>
+```
+
+## web.xmlの記述
+
+```xml:web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+  version="5.0">
+  <servlet>
+    <servlet-name>helloservlet</servlet-name>
+    <servlet-class>HelloServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>helloservlet</servlet-name>
+    <url-pattern>/helloservlet</url-pattern>
+  </servlet-mapping>
+</web-app>
+```
+
+## 画面表示
+Tomcatを起動したら、`localhost:8080/hello`にアクセスして作成したindex.htmlファイルのないような表示されていることを確認する。
+さらに、/hello/helloservletにアクセスしてサーブレットで作成した。レスポンス内容が表示されていることも確認する。
+
+## 参考
+https://www.javadrive.jp/servlet/context/index2.html
