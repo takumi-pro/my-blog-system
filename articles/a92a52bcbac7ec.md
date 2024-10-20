@@ -1,5 +1,5 @@
 ---
-title: "217.contains-deplicateは意外と奥が深い"
+title: "217.contains-duplicateを見直してリファクタする"
 emoji: "🎃"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["leetcode"]
@@ -7,7 +7,7 @@ published: true
 publishedAt: "2024/10/20"
 ---
 
-LeetCode easy問題の「217.contains-dplicate」を解いた。
+LeetCode easy問題の「217.contains-duplicate」を解いた。
 後から解答コードを見返してみるとツッコミどころがあったため、リファクタ案などを書いていく。
 
 
